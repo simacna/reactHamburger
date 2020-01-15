@@ -1,0 +1,27 @@
+import React from 'react';
+import { isTSAnyKeyword } from '@babel/types';
+
+//every component manages props and since react 16.8 every component also can manage state (prior to that you could only manage class base components)
+const person = (props) => {
+    //props is the attributes you pass to your
+    //components
+    // stateless (also called dumb) since they only get input and output as possible 
+    return (
+    <div>
+        <p> i'm {props.age} years and my 
+        name is {props.name}
+        </p>
+        <p> {props.children}</p> 
+        {/* content between <person></person> tags now show */}
+    </div>
+    )
+    // return(<p> hi</p>) <- returns hi
+};
+
+// when using class-based components its 
+// this.props
+// class Person extends Component {
+// render(){ return <p> my name is {this.props} </p>}
+// }
+
+export default person;
