@@ -42,7 +42,7 @@ switchNameHandler = () => {
     return(
       <div className="App" >
         <h1>
-          ~ aloha ~
+          ~ aloha 
         </h1>
       <button onClick={this.switchNameHandler}> switch name</button>
         <Person name={this.state.persons[0].name} age = {this.state.persons[0].age}> this is children </Person>
