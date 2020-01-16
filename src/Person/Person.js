@@ -8,10 +8,11 @@ const person = (props) => {
     // stateless (also called dumb) since they only get input and output as possible 
     return (
     <div>
-        <p> i'm {props.age} years and my 
+        
+        <p onClick={props.click}> i'm {props.age} years and my 
         name is {props.name}
         </p>
-        <p> {props.children}</p> 
+        {/* <p> {props.children}</p>  */}
         {/* content between <person></person> tags now show */}
     </div>
     )

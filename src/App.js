@@ -22,7 +22,7 @@ class App extends React.Component {
 // //[convention] function names ending in handler
 // // are handling event methods
 
-switchNameHandler = () => {
+switchNameHandler = (newName) => {
   // console.log('was clicked');
   // this below refers to the class
   // console.log(this.state.persons[0].name);
@@ -32,7 +32,7 @@ switchNameHandler = () => {
 //   //setState merges old state with new state
   this.setState({
     persons: [
-      {name: 'khandan', age: 2338},
+      {name: newName, age: 2338},
       {name: 'man', age:122}
     ]
   })
@@ -44,8 +44,15 @@ switchNameHandler = () => {
         <h1>
           ~ aloha 
         </h1>
-      <button onClick={this.switchNameHandler}> switch name</button>
-        <Person name={this.state.persons[0].name} age = {this.state.persons[0].age}> this is children </Person>
+      {/* below you see two ways of calling switchNameHandler
+      using arrow function on onclick or bind(this, 'string') */}
+      <button onClick={()=> this.switchNameHandler('sesssss')}> switch name</button>
+        <Person
+        name={this.state.persons[0].name} 
+        age = {this.state.persons[0].age}
+        //below we are passing methods as props
+        click = {this.switchNameHandler.bind(this, 'wetf')}
+        />
       </div>
     )
     
