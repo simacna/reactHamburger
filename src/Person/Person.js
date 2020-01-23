@@ -8,11 +8,12 @@ const person = (props) => {
     // stateless (also called dumb) since they only get input and output as possible 
     return (
     <div>
-        
+        {/* if i remove onClick={props.click} app works normally */}
         <p onClick={props.click}> i'm {props.age} years and my 
         name is {props.name}
         </p>
-        <input type="text" onChange={()=>{}}/>
+        {/* how do you know there's an attribute called changed? its supposedly referring to */}
+        <input type="text" onChange={props.changed}/>  
         {/* <p> {props.children}</p>  */}
         {/* content between <person></person> tags now show */}
     </div>
