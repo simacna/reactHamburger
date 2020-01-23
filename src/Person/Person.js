@@ -12,6 +12,7 @@ const person = (props) => {
         <p onClick={props.click}> i'm {props.age} years and my 
         name is {props.name}
         </p>
+        <input type="text" onChange={()=>{}}/>
         {/* <p> {props.children}</p>  */}
         {/* content between <person></person> tags now show */}
     </div>
