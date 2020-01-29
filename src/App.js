@@ -38,6 +38,15 @@ switchNameHandler = (newName) => {
   })
 //   // console.log(this.state.persons[0].name);
 }
+
+nameChangedHandler = (event) => {
+  this.setState({
+    persons: [
+      // {name: event.target.value, age: 2338},
+      {name: event.target.value, age:122}
+    ]
+  })
+}
   render(){
     return(
       <div className="App" >
@@ -51,7 +60,8 @@ switchNameHandler = (newName) => {
         name={this.state.persons[0].name} 
         age = {this.state.persons[0].age}
         //below we are passing methods as props
-        click = {this.switchNameHandler.bind(this, 'wetf')}
+        // click = {this.nameChangedHandler}
+        changed = {this.nameChangedHandler}
         />
       </div>
     )
