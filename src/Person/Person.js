@@ -13,7 +13,7 @@ const person = (props) => {
         name is {props.name}
         </p>
         {/* how do you know there's an attribute called changed? its supposedly referring to */}
-        <input type="text" onChange={props.changed}/>  
+        <input type="text" onChange={props.changed} value={props.name}/>  
         {/* <p> {props.children}</p>  */}
         {/* content between <person></person> tags now show */}
     </div>

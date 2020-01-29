@@ -13,14 +13,14 @@ class App extends React.Component {
   // you have way more functional components and have a clear flow of data
     state = {
       persons: [
-        {name: 'max', age: 28},
-        {name: 'man', age:12}
+        {name: 'max', age: 28}
+        // {name: 'man', age:12}
       ]
     }
 
 
-// //[convention] function names ending in handler
-// // are handling event methods
+//[convention] function names ending in handler
+// are handling event methods
 
 switchNameHandler = (newName) => {
   // console.log('was clicked');
@@ -32,8 +32,8 @@ switchNameHandler = (newName) => {
 //   //setState merges old state with new state
   this.setState({
     persons: [
-      {name: newName, age: 2338},
-      {name: 'man', age:122}
+      // {name: newName, age: 2338},
+      {name: newName, age:1224}
     ]
   })
 //   // console.log(this.state.persons[0].name);
@@ -43,7 +43,7 @@ nameChangedHandler = (event) => {
   this.setState({
     persons: [
       // {name: event.target.value, age: 2338},
-      {name: event.target.value, age:122}
+      {name: event.target.value, age: 'hehe'}
     ]
   })
 }
