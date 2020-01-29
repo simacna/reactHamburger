@@ -1,4 +1,5 @@
 import React from 'react';
+import './Person.css'
 import { isTSAnyKeyword } from '@babel/types';
 
 //every component manages props and since react 16.8 every component also can manage state (prior to that you could only manage class base components)
@@ -7,7 +8,7 @@ const person = (props) => {
     //components
     // stateless (also called dumb) since they only get input and output as possible 
     return (
-    <div>
+    <div className="Person">
         {/* if i remove onClick={props.click} app works normally */}
         <p onClick={props.click}> i'm {props.age} years and my 
         name is {props.name}

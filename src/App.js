@@ -2,6 +2,7 @@
 import React, {Component} from 'react'
 // import React, { useState } from 'react';
 import './App.css';
+
 import Person from './Person/Person';
 
 
@@ -48,6 +49,14 @@ nameChangedHandler = (event) => {
   })
 }
   render(){
+
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px'
+    };
+
     return(
       <div className="App" >
         <h1>
@@ -55,7 +64,9 @@ nameChangedHandler = (event) => {
         </h1>
       {/* below you see two ways of calling switchNameHandler
       using arrow function on onclick or bind(this, 'string') */}
-      <button onClick={()=> this.switchNameHandler('sesssss')}> switch name</button>
+      <button 
+      style={style}
+      onClick={()=> this.switchNameHandler('sesssss')}> switch name</button>
         <Person
         name={this.state.persons[0].name} 
         age = {this.state.persons[0].age}

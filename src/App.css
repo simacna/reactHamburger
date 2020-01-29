@@ -1,5 +1,7 @@
 .App {
   text-align: center;
-  background-color:#581845;
-  opacity: 0.5;
+  background-color: #007f7f;
+  opacity: 0.6;
+  padding: 10%;
+  margin: 20px;
 }
