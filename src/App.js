@@ -36,7 +36,7 @@ switchNameHandler = (newName) => {
       {name: newName, age:1224}
     ]
   })
-//   // console.log(this.state.persons[0].name);
+//   // console.log(this.state.persons[0].name)
 }
 
 nameChangedHandler = (event) => {
