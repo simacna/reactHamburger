@@ -19,7 +19,6 @@ class App extends React.Component {
       ]
     }
 
-
 //[convention] function names ending in handler
 // are handling event methods
 
@@ -49,7 +48,7 @@ nameChangedHandler = (event) => {
   })
 }
   render(){
-
+    // console.log(typeof(this.state));
     const style = {
       backgroundColor: 'white',
       font: 'inherit',
