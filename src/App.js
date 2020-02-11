@@ -18,7 +18,7 @@ class App extends React.Component {
         // {name: 'man', age:12}
       ],
       otherState: 'some other value',
-      showPerson: false //if false, don't want to show person
+      showPerson:false //if false, don't want to show person
     }
 
 //[convention] function names ending in handler
@@ -50,8 +50,16 @@ nameChangedHandler = (event) => {
   })
 }
 
-togglePersonHandler = () => {
+// togglePersonHandler = () => {
+//   const doesShow = this.state.showPersons; //this just shows current state
+//   console.log(doesShow);
+//   this.setState({showPersons: !doesShow});
+// }
 
+toggleName = () => {
+  const currentStatus = this.state.showPerson;
+  // console.log(currentStatus);
+  this.setState({showPerson: !currentStatus});
 }
 
   render(){
@@ -72,11 +80,10 @@ togglePersonHandler = () => {
       using arrow function on onclick or bind(this, 'string') */}
       <button 
       style={style}
-      onClick={()=> this.togglePersonHandler}> switch name</button>
-      {/* we're going to conditionally display <Person> below */}
-        {
-        // can't do if statements only block in this dynamic syntax
-        this.state.showPersons :
+      onClick={this.toggleName}> switch name</button>
+
+      {
+        this.state.showPerson ?
         <div>
           <Person
           name={this.state.persons[0].name} 
@@ -85,7 +92,23 @@ togglePersonHandler = () => {
           // click = {this.nameChangedHandler}
           changed = {this.nameChangedHandler}
           />
-        </div> ? null}
+        </div> : null
+      
+      
+      }
+      {/* we're going to conditionally display <Person> below */}
+        {/* {
+        // can't do if statements only block in this dynamic syntax
+        this.state.showPersons ?
+        <div>
+          <Person
+          name={this.state.persons[0].name} 
+          age = {this.state.persons[0].age}
+          //below we are passing methods as props
+          // click = {this.nameChangedHandler}
+          changed = {this.nameChangedHandler}
+          />
+        </div> : null} */}
       </div>
     )
     
