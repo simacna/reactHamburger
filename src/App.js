@@ -16,7 +16,9 @@ class App extends React.Component {
       persons: [
         {name: 'max', age: 28}
         // {name: 'man', age:12}
-      ]
+      ],
+      otherState: 'some other value',
+      showPerson: false //if false, don't want to show person
     }
 
 //[convention] function names ending in handler
@@ -47,6 +49,11 @@ nameChangedHandler = (event) => {
     ]
   })
 }
+
+togglePersonHandler = () => {
+
+}
+
   render(){
     // console.log(typeof(this.state));
     const style = {
@@ -65,14 +72,20 @@ nameChangedHandler = (event) => {
       using arrow function on onclick or bind(this, 'string') */}
       <button 
       style={style}
-      onClick={()=> this.switchNameHandler('sesssss')}> switch name</button>
-        <Person
-        name={this.state.persons[0].name} 
-        age = {this.state.persons[0].age}
-        //below we are passing methods as props
-        // click = {this.nameChangedHandler}
-        changed = {this.nameChangedHandler}
-        />
+      onClick={()=> this.togglePersonHandler}> switch name</button>
+      {/* we're going to conditionally display <Person> below */}
+        {
+        // can't do if statements only block in this dynamic syntax
+        this.state.showPersons :
+        <div>
+          <Person
+          name={this.state.persons[0].name} 
+          age = {this.state.persons[0].age}
+          //below we are passing methods as props
+          // click = {this.nameChangedHandler}
+          changed = {this.nameChangedHandler}
+          />
+        </div> ? null}
       </div>
     )
     
