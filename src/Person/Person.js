@@ -10,13 +10,15 @@ const person = (props) => {
     return (
     <div className="Person">
         {/* if i remove onClick={props.click} app works normally */}
-        <p onClick={props.click}> i'm {props.age} years and my 
+        <p onClick={props.click}> i'm {props.age} yeardds and my 
         name is {props.name}
         </p>
         {/* how do you know there's an attribute called changed? its supposedly referring to */}
         <input type="text" onChange={props.changed} value={props.name}/>  
         {/* <p> {props.children}</p>  */}
-        {/* content between <person></person> tags now show */}
+        {/* content between <person></person> tags now show */
+        }
+        <p>test</p>
     </div>
     )
     // return(<p> hi</p>) <- returns hi

@@ -18,7 +18,7 @@ class App extends React.Component {
         // {name: 'man', age:12}
       ],
       otherState: 'some other value',
-      showPerson:false //if false, don't want to show person
+      showPersons: true //if false, don't want to show person
     }
 
 //[convention] function names ending in handler
@@ -58,10 +58,16 @@ nameChangedHandler = (event) => {
 
 toggleName = () => {
   const currentStatus = this.state.showPerson;
-  // console.log(currentStatus);
+  console.log(currentStatus);
   this.setState({showPerson: !currentStatus});
 }
 
+clickButtonConsoleLog = () => {
+  console.log('button pressed');
+}
+
+//everything inside render gets rendered when 
+// react thinks something needs to get updated
   render(){
     // console.log(typeof(this.state));
     const style = {
@@ -71,6 +77,26 @@ toggleName = () => {
       padding: '8px'
     };
 
+    let persons = null;
+
+    if(this.state.showPersons){
+      console.log('this.state.showPersons');
+      persons = (
+        <div>
+          <Person
+          name={this.state.persons[0].name} 
+          age = {this.state.persons[0].age}
+          //below we are passing methods as props
+          // click = {this.nameChangedHandler}
+          changed = {this.toggleName}
+          // consoled = {this.clickButtonConsoleLosg}
+          />
+        </div>
+        
+      )
+    }
+
+    //below this is jsx, above is normal js code
     return(
       <div className="App" >
         <h1>
@@ -81,21 +107,14 @@ toggleName = () => {
       <button 
       style={style}
       onClick={this.toggleName}> switch name</button>
-
-      {
-        this.state.showPerson ?
-        <div>
-          <Person
-          name={this.state.persons[0].name} 
-          age = {this.state.persons[0].age}
-          //below we are passing methods as props
-          // click = {this.nameChangedHandler}
-          changed = {this.nameChangedHandler}
-          />
-        </div> : null
-      
-      
-      }
+      {/* <button onClick={this.clickButtonConsoleLog}>alo</button> */}
+      {persons}
+      {/* { */}
+        {/* //terneray operator not the greatest because it can be hard
+        // to know what's responsible for what
+        // this.state.showPerson ? */}
+        
+        {/* : null } */}
       {/* we're going to conditionally display <Person> below */}
         {/* {
         // can't do if statements only block in this dynamic syntax
