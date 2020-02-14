@@ -14,7 +14,8 @@ class App extends React.Component {
   // you have way more functional components and have a clear flow of data
     state = {
       persons: [
-        {name: 'max', age: 28}
+        {name: 'person1', age: 1},
+        {name: 'person2', age: 2 }
         // {name: 'man', age:12}
       ],
       otherState: 'some other value',
@@ -58,7 +59,8 @@ nameChangedHandler = (event) => {
 
 toggleName = () => {
   const currentStatus = this.state.showPerson;
-  console.log(currentStatus);
+  console.log('toggle me dirty', currentStatus);
+  console.log('showPerson: !currentStatus', currentStatus);
   this.setState({showPerson: !currentStatus});
 }
 
@@ -79,11 +81,19 @@ clickButtonConsoleLog = () => {
 
     let persons = null;
 
-    if(this.state.showPersons){
+    if((this.state.showPersons)){
       console.log('this.state.showPersons');
       persons = (
         <div>
           <Person
+          name={this.state.persons[1].name} 
+          age = {this.state.persons[1].age}
+          //below we are passing methods as props
+          // click = {this.nameChangedHandler}
+          changed = {this.toggleName}
+          // consoled = {this.clickButtonConsoleLosg}
+          />
+           <Person
           name={this.state.persons[0].name} 
           age = {this.state.persons[0].age}
           //below we are passing methods as props
