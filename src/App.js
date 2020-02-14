@@ -25,6 +25,8 @@ class App extends React.Component {
 //[convention] function names ending in handler
 // are handling event methods
 
+
+//2.14.20 - why is this.setState in a function?
 switchNameHandler = (newName) => {
   // console.log('was clicked');
   // this below refers to the class
@@ -37,10 +39,13 @@ switchNameHandler = (newName) => {
     persons: [
       // {name: newName, age: 2338},
       {name: newName, age:1224}
-    ]
+    ],
+    otherState: 'some other value',
+    showPersons: true
   })
 //   // console.log(this.state.persons[0].name)
 }
+
 
 nameChangedHandler = (event) => {
   this.setState({
@@ -58,10 +63,11 @@ nameChangedHandler = (event) => {
 // }
 
 toggleName = () => {
-  const currentStatus = this.state.showPerson;
-  console.log('toggle me dirty', currentStatus);
-  console.log('showPerson: !currentStatus', currentStatus);
-  this.setState({showPerson: !currentStatus});
+  const currentStatus = this.state.showPersons;
+  // console.log('toggle me dirty', currentStatus);
+  // console.log('showPerson: !currentStatus', currentStatus);
+  console.log('this.state.showPersons', this.state.showPersons);
+  this.setState({showPersons: !currentStatus});
 }
 
 clickButtonConsoleLog = () => {
@@ -82,25 +88,13 @@ clickButtonConsoleLog = () => {
     let persons = null;
 
     if((this.state.showPersons)){
-      console.log('this.state.showPersons');
       persons = (
         <div>
-          <Person
-          name={this.state.persons[1].name} 
-          age = {this.state.persons[1].age}
-          //below we are passing methods as props
-          // click = {this.nameChangedHandler}
-          changed = {this.toggleName}
-          // consoled = {this.clickButtonConsoleLosg}
-          />
-           <Person
-          name={this.state.persons[0].name} 
-          age = {this.state.persons[0].age}
-          //below we are passing methods as props
-          // click = {this.nameChangedHandler}
-          changed = {this.toggleName}
-          // consoled = {this.clickButtonConsoleLosg}
-          />
+          {this.state.persons.map(person => {
+            return <Person 
+            name={person.name} 
+            age={person.age}/>
+          })}
         </div>
         
       )
