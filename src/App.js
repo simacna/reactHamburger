@@ -42,9 +42,14 @@ class App extends React.Component {
 //   })
 // }
 deletePersonHandler = (personIndex) => {
-  const persons = this.state.persons;
+  //below has 1 flaw: in js, obj/arrays are reference types
+  //so when we gets persons = this.sta... we point to the original 
+  //while it does wo throwing error, can lead to unpredicable behavior
+  //we should copy the this.state.persons -- calling just .slice()
+  //or using dot operator [...]
+  const persons = [...this.state.persons];
+  // const persons = this.state.persons;
   persons.splice(personIndex, 1); //removes 1 element from array
-  console.log('persons', persons);
   this.setState({persons: persons});
   
   // this.setState({
