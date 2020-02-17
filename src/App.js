@@ -1,8 +1,8 @@
 // import React from 'react';
-import React, {Component} from 'react'
 // import React, { useState } from 'react';
-import './App.css';
 
+import React, {Component} from 'react'
+import './App.css';
 import Person from './Person/Person';
 
 
@@ -27,25 +27,23 @@ class App extends React.Component {
 
 
 //2.14.20 - why is this.setState in a function?
-switchNameHandler = (newName) => {
-  // console.log('was clicked');
-  // this below refers to the class
-  // console.log(this.state.persons[0].name);
+// switchNameHandler = (newName) => {
+//   // this below refers to the class
+// //   //we shouldn't change state directly but instead usee setState()
+// //   // this.state.persons[0].name = "khandan";
+// //   //setState merges old state with new state
+//   this.setState({
+//     persons: [
+//       // {name: newName, age: 2338},
+//       {name: newName, age:1224}
+//     ],
+//     otherState: 'some other value',
+//     showPersons: true
+//   })
+// }
+deletePersonHandler = () => {
 
-//   //we shouldn't change state directly but instead usee setState()
-//   // this.state.persons[0].name = "khandan";
-//   //setState merges old state with new state
-  this.setState({
-    persons: [
-      // {name: newName, age: 2338},
-      {name: newName, age:1224}
-    ],
-    otherState: 'some other value',
-    showPersons: true
-  })
-//   // console.log(this.state.persons[0].name)
 }
-
 
 nameChangedHandler = (event) => {
   this.setState({
@@ -64,9 +62,6 @@ nameChangedHandler = (event) => {
 
 toggleName = () => {
   const currentStatus = this.state.showPersons;
-  // console.log('toggle me dirty', currentStatus);
-  // console.log('showPerson: !currentStatus', currentStatus);
-  console.log('this.state.showPersons', this.state.showPersons);
   this.setState({showPersons: !currentStatus});
 }
 
@@ -92,6 +87,7 @@ clickButtonConsoleLog = () => {
         <div>
           {this.state.persons.map(person => {
             return <Person 
+            click={this.deletePersonHandler}
             name={person.name} 
             age={person.age}/>
           })}
