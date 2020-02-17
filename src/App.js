@@ -19,7 +19,7 @@ class App extends React.Component {
         // {name: 'man', age:12}
       ],
       otherState: 'some other value',
-      showPersons: true //if false, don't want to show person
+      showPersons: false //if false, don't want to show person
     }
 
 //[convention] function names ending in handler
