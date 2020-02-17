@@ -41,8 +41,15 @@ class App extends React.Component {
 //     showPersons: true
 //   })
 // }
-deletePersonHandler = () => {
+deletePersonHandler = (personIndex) => {
+  const persons = this.state.persons;
+  persons.splice(personIndex, 1); //removes 1 element from array
+  console.log('persons', persons);
+  this.setState({persons: persons});
+  
+  // this.setState({
 
+  // })
 }
 
 nameChangedHandler = (event) => {
@@ -85,9 +92,11 @@ clickButtonConsoleLog = () => {
     if((this.state.showPersons)){
       persons = (
         <div>
-          {this.state.persons.map(person => {
+          {/* map() function takes two arguments, index of each item in array */}
+          {this.state.persons.map((person, index) => {
             return <Person 
-            click={this.deletePersonHandler}
+            // other option below would be index.bind()
+            click={() => this.deletePersonHandler(index)}
             name={person.name} 
             age={person.age}/>
           })}
