@@ -57,11 +57,13 @@ deletePersonHandler = (personIndex) => {
   // })
 }
 
-nameChangedHandler = (event) => {
+nameChangedHandler = (event, id) => {
   this.setState({
     persons: [
       // {name: event.target.value, age: 2338},
-      {name: event.target.value, age: 'hehe'}
+      {name: this.state.persons.name, age: this.state.persons.age},
+      {name: event.target.value, age: this.state.persons.age}
+
     ]
   })
 }
@@ -106,6 +108,7 @@ clickButtonConsoleLog = () => {
             age={person.age}
             //chances are keys come from db
             key={person.id}
+            changed={() => this.nameChangedHandler}
             />
           })}
         </div>
