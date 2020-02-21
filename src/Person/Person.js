@@ -7,7 +7,7 @@ const person = (props) => {
     //props is the attributes you pass to your
     //components
     // stateless (also called dumb) since they only get input and output as possible 
-    console.log('props in Person.js', props);
+    // console.log('props in Person.js', props);
     return (
         <div className="Person">
             {/* if i remove onClick={props.click} app works normally */}

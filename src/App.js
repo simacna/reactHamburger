@@ -56,23 +56,42 @@ deletePersonHandler = (personIndex) => {
 
   // })
 }
-
-nameChangedHandler = (event, id) => {
-  this.setState({
-    persons: [
-      // {name: event.target.value, age: 2338},
-      {name: this.state.persons.name, age: this.state.persons.age},
-      {name: event.target.value, age: this.state.persons.age}
-
-    ]
-  })
-}
-
 // togglePersonHandler = () => {
 //   const doesShow = this.state.showPersons; //this just shows current state
 //   console.log(doesShow);
 //   this.setState({showPersons: !doesShow});
 // }
+
+nameChangedHandler = (event, id) => {
+
+  //how can there be a situation where the p.id != id?
+  const personIndex = this.state.persons.findIndex(p => {
+    return p.id === id;
+  });
+  //below was my attempt but apparently need to pass a callback to findindex find
+  // const personIndex = this.state.persons.findIndex(id);
+  // console.log('id', personIndex);
+  const person = {
+    ...this.state.persons[personIndex]
+  };
+  
+  person.name = event.target.value;
+
+  const persons = [...this.state.persons];
+  persons[personIndex] = person;
+
+  this.setState({persons: persons})
+  //below is commented out bc directly working on object
+  // const person = this.state.persons[personIndex];
+  // this.setState({
+  //   persons: [
+  //     // {name: event.target.value, age: 2338},
+  //     {name: event.target.value, age: this.state.persons.age},
+  //     {name: event.target.value, age: this.state.persons.age}
+
+  //   ]
+  // })
+}
 
 toggleName = () => {
   const currentStatus = this.state.showPersons;
@@ -108,7 +127,7 @@ clickButtonConsoleLog = () => {
             age={person.age}
             //chances are keys come from db
             key={person.id}
-            changed={() => this.nameChangedHandler}
+            changed={(event) => this.nameChangedHandler(event, person.id)}
             />
           })}
         </div>
@@ -120,7 +139,7 @@ clickButtonConsoleLog = () => {
     return(
       <div className="App" >
         <h1>
-          ~ aloha 
+          æ
         </h1>
       {/* below you see two ways of calling switchNameHandler
       using arrow function on onclick or bind(this, 'string') */}
