@@ -14,8 +14,8 @@ class App extends React.Component {
   // you have way more functional components and have a clear flow of data
     state = {
       persons: [
-        {name: 'person1', age: 1},
-        {name: 'person2', age: 2 }
+        {id: 'A1', name: 'person1', age: 1},
+        {id:'B2', name: 'person2', age: 2 }
         // {name: 'man', age:12}
       ],
       otherState: 'some other value',
@@ -103,7 +103,10 @@ clickButtonConsoleLog = () => {
             // other option below would be index.bind()
             click={() => this.deletePersonHandler(index)}
             name={person.name} 
-            age={person.age}/>
+            age={person.age}
+            //chances are keys come from db
+            key={person.id}
+            />
           })}
         </div>
         
