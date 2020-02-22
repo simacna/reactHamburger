@@ -2,7 +2,7 @@
 // import React, { useState } from 'react';
 
 import React, {Component} from 'react'
-import './App.css';
+import classes from './App.css';
 import Person from './Person/Person';
 
 
