@@ -107,7 +107,7 @@ clickButtonConsoleLog = () => {
   render(){
     // console.log(typeof(this.state));
     const style = {
-      backgroundColor: 'white',
+      backgroundColor: 'purple',
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px'
@@ -130,9 +130,17 @@ clickButtonConsoleLog = () => {
             changed={(event) => this.nameChangedHandler(event, person.id)}
             />
           })}
-        </div>
-        
+        </div>  
       )
+      style.backgroundColor = 'red';
+    }
+
+    let classes = [];
+    if(this.state.persons.length <= 2){
+      classes.push('red'); //classes = ['red]
+    }
+    if(this.state.persons <= 1){
+      classes.push('bold'); //classes = ['red', 'bold']
     }
 
     //below this is jsx, above is normal js code
@@ -141,11 +149,14 @@ clickButtonConsoleLog = () => {
         <h1>
           æ
         </h1>
+        <p className={classes.join(' ')}>
+          this be a paragraph
+        </p>
       {/* below you see two ways of calling switchNameHandler
       using arrow function on onclick or bind(this, 'string') */}
       <button 
-      style={style}
-      onClick={this.toggleName}> switch name</button>
+        style={style}
+        onClick={this.toggleName}> switch name</button>
       {/* <button onClick={this.clickButtonConsoleLog}>alo</button> */}
       {persons}
       {/* { */}
