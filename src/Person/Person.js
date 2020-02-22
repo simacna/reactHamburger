@@ -1,4 +1,5 @@
 import React from 'react';
+import Radium from 'radium';
 import './Person.css'
 import { isTSAnyKeyword } from '@babel/types';
 
@@ -8,6 +9,8 @@ const person = (props) => {
     //components
     // stateless (also called dumb) since they only get input and output as possible 
     // console.log('props in Person.js', props);
+
+
     return (
         <div className="Person">
             {/* if i remove onClick={props.click} app works normally */}

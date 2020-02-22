@@ -4,7 +4,6 @@
 import React, {Component} from 'react'
 import './App.css';
 import Person from './Person/Person';
-import Radium from 'radium';
 
 
 class App extends React.Component {
@@ -112,12 +111,7 @@ clickButtonConsoleLog = () => {
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
-      cursor: 'pointer',
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: 'black'
-      }
-
+      cursor: 'pointer'
     };
 
     let persons = null;
@@ -140,10 +134,6 @@ clickButtonConsoleLog = () => {
         </div>  
       )
       style.backgroundColor = 'red';
-      style[':hover'] = {
-        backgroundColor: 'lightred',
-        color: 'black'
-      }
     }
 
     let classes = [];
@@ -156,40 +146,43 @@ clickButtonConsoleLog = () => {
 
     //below this is jsx, above is normal js code
     return(
-      <div className="App" >
-        <h1>
-          æ
-        </h1>
-        <p className={classes.join(' ')}>
-          this be a paragraph
-        </p>
-      {/* below you see two ways of calling switchNameHandler
-      using arrow function on onclick or bind(this, 'string') */}
-      <button 
-        style={style}
-        onClick={this.toggleName}> switch name</button>
-      {/* <button onClick={this.clickButtonConsoleLog}>alo</button> */}
-      {persons}
-      {/* { */}
-        {/* //terneray operator not the greatest because it can be hard
-        // to know what's responsible for what
-        // this.state.showPerson ? */}
-        
-        {/* : null } */}
-      {/* we're going to conditionally display <Person> below */}
-        {/* {
-        // can't do if statements only block in this dynamic syntax
-        this.state.showPersons ?
-        <div>
-          <Person
-          name={this.state.persons[0].name} 
-          age = {this.state.persons[0].age}
-          //below we are passing methods as props
-          // click = {this.nameChangedHandler}
-          changed = {this.nameChangedHandler}
-          />
-        </div> : null} */}
+
+        <div className="App" >
+          <h1>
+            æ
+          </h1>
+          <p className={classes.join(' ')}>
+            this be a paragraph
+          </p>
+        {/* below you see two ways of calling switchNameHandler
+        using arrow function on onclick or bind(this, 'string') */}
+        <button 
+          style={style}
+          onClick={this.toggleName}> switch name</button>
+        {/* <button onClick={this.clickButtonConsoleLog}>alo</button> */}
+        {persons}
+        {/* { */}
+          {/* //terneray operator not the greatest because it can be hard
+          // to know what's responsible for what
+          // this.state.showPerson ? */}
+          
+          {/* : null } */}
+        {/* we're going to conditionally display <Person> below */}
+          {/* {
+          // can't do if statements only block in this dynamic syntax
+          this.state.showPersons ?
+          <div>
+            <Person
+            name={this.state.persons[0].name} 
+            age = {this.state.persons[0].age}
+            //below we are passing methods as props
+            // click = {this.nameChangedHandler}
+            changed = {this.nameChangedHandler}
+            />
+          </div> : null} */}
       </div>
+     
+      
     )
     
 //     //below and above are the same when compiled
@@ -201,7 +194,7 @@ clickButtonConsoleLog = () => {
 //you typically name the component
 //with the name of the file
 
-export default Radium(App);
+export default App;
 
 //react hooks below. useState is most important react hook
 
