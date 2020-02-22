@@ -4,7 +4,7 @@
 import React, {Component} from 'react'
 import './App.css';
 import Person from './Person/Person';
-import Radium from Radium
+import Radium from 'radium';
 
 
 class App extends React.Component {
@@ -111,7 +111,13 @@ clickButtonConsoleLog = () => {
       backgroundColor: 'purple',
       font: 'inherit',
       border: '1px solid blue',
-      padding: '8px'
+      padding: '8px',
+      cursor: 'pointer',
+      ':hover': {
+        backgroundColor: 'lightgreen',
+        color: 'black'
+      }
+
     };
 
     let persons = null;
@@ -134,6 +140,10 @@ clickButtonConsoleLog = () => {
         </div>  
       )
       style.backgroundColor = 'red';
+      style[':hover'] = {
+        backgroundColor: 'lightred',
+        color: 'black'
+      }
     }
 
     let classes = [];
@@ -191,7 +201,7 @@ clickButtonConsoleLog = () => {
 //you typically name the component
 //with the name of the file
 
-export default App;
+export default Radium(App);
 
 //react hooks below. useState is most important react hook
 
