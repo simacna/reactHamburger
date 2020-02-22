@@ -7,3 +7,12 @@
     margin-top: 20px;
     text-align: center;
 }
+
+
+/* commenting out below so we can use radium where we might 
+need to use styling just for component or adding css dynamically */
+/* @media(min-width: 500px){
+    .Person {
+        width: 450px;
+    }
+} */
