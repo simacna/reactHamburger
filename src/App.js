@@ -2,7 +2,7 @@
 // import React, { useState } from 'react';
 
 import React, {Component} from 'react'
-import classes from './App.css';
+import './App.css';
 import Person from './Person/Person';
 
 
@@ -62,6 +62,7 @@ deletePersonHandler = (personIndex) => {
 //   this.setState({showPersons: !doesShow});
 // }
 
+//why doesn't putting parameter as (...args) work below?
 nameChangedHandler = (event, id) => {
 
   //how can there be a situation where the p.id != id?
@@ -102,6 +103,12 @@ clickButtonConsoleLog = () => {
   console.log('button pressed');
 }
 
+lenOutput = (event) => {
+  console.log('things are happening in MY INPUT BABAY');
+  const inputFieldText = event.target.value;
+  console.log(inputFieldText);
+}
+
 //everything inside render gets rendered when 
 // react thinks something needs to get updated
   render(){
@@ -113,6 +120,12 @@ clickButtonConsoleLog = () => {
       padding: '8px',
       cursor: 'pointer'
     };
+
+    const inp = {
+      backgroundColor: 'white',
+      marginTop: '10px',
+      padding: '10px'
+    }
 
     let persons = null;
 
@@ -136,29 +149,33 @@ clickButtonConsoleLog = () => {
       style.backgroundColor = 'red';
     }
 
-    let classes = [];
+    let assignedClasses = [];
     if(this.state.persons.length <= 2){
-      classes.push('red'); //classes = ['red]
+      assignedClasses.push('red'); //classes = ['red]
+      // assignedClasses.push(classes.red);
     }
     if(this.state.persons <= 1){
-      classes.push('bold'); //classes = ['red', 'bold']
+      assignedClasses.push('bold'); //classes = ['red', 'bold']
+      // assignedClasses.push(classes.bold);
     }
 
     //below this is jsx, above is normal js code
     return(
-
-        <div className="App" >
+// css loader transforms css class name into a unique one 
+// where classname we tweaked in webpack
+        <div className= "App" >
           <h1>
             æ
           </h1>
-          <p className={classes.join(' ')}>
+          <p className={assignedClasses.join(' ')}>
             this be a paragraph
           </p>
         {/* below you see two ways of calling switchNameHandler
         using arrow function on onclick or bind(this, 'string') */}
         <button 
           style={style}
-          onClick={this.toggleName}> switch name</button>
+          onClick={this.toggleName}> switch name</button><br></br>
+          <input onChange = {this.lenOutput} style={inp}/>
         {/* <button onClick={this.clickButtonConsoleLog}>alo</button> */}
         {persons}
         {/* { */}
