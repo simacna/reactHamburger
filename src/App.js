@@ -103,10 +103,13 @@ clickButtonConsoleLog = () => {
   console.log('button pressed');
 }
 
+
 lenOutput = (event) => {
-  console.log('things are happening in MY INPUT BABAY');
+  // console.log('things are happening in MY INPUT BABAY');
   const inputFieldText = event.target.value;
   console.log(inputFieldText);
+  this.setState({persons: inputFieldText});
+
 }
 
 //everything inside render gets rendered when 
@@ -128,6 +131,7 @@ lenOutput = (event) => {
     }
 
     let persons = null;
+    
 
     if((this.state.showPersons)){
       persons = (
