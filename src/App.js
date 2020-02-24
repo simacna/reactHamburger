@@ -23,6 +23,7 @@ class App extends React.Component {
           filler: ''
         }
       ],
+      personsHW2: '',
       otherState: 'some other value',
       showPersons: false //if false, don't want to show person
     }
@@ -110,17 +111,20 @@ lenOutput = (event) => {
   const inputFieldText = event.target.value;
   this.setState((prevState)=>{
     const newPersonsHW = prevState.personsHW.map((obj)=>{
-      obj.filler = inputFieldText;
+      obj.filler = inputFieldText.length;
       return obj;
     });
     return {personsHW:newPersonsHW}
   })
   // this.setState({personsHW.: inputFieldText})
-  // this.setState.personsHW.filler = inputFieldText;
+  // this.setState.personsHW.filler = inputFieldText;  
+}
+lenOutPut2 = (event) => {
+  const inputField = event.target.value;
+  const p = this.state.personsHW2;
+  console.log(inputField);
+  this.setState({p: inputField});
 
-  console.log('this.state.personsHW', this.state.personsHW);
-
-  
 }
 
 toggleName = () => {
@@ -200,6 +204,8 @@ toggleName = () => {
           onClick={this.toggleName}> switch name</button><br></br>
           <input onChange={this.lenOutput} style={inp}/>
           <p>{this.state.personsHW.map(obj => obj.filler)}</p>
+          <input onChange={this.lenOutPut2}></input>
+          <p>{this.lenOutPut2}</p>
         {/* <button onClick={this.clickButtonConsoleLog}>alo</button> */}
         {persons}
       
