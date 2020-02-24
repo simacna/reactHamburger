@@ -23,7 +23,7 @@ class App extends React.Component {
           filler: ''
         }
       ],
-      personsHW2: '',
+      personsHW2: 'alo',
       otherState: 'some other value',
       showPersons: false //if false, don't want to show person
     }
@@ -120,9 +120,13 @@ lenOutput = (event) => {
   // this.setState.personsHW.filler = inputFieldText;  
 }
 lenOutPut2 = (event) => {
+  console.log('this.state;', this.state.persons);
+  console.log('this.state.persons', this.state);
+  console.log('this.state.personsHW2', this.state.personsHW2);
   const inputField = event.target.value;
   const p = this.state.personsHW2;
-  console.log(inputField);
+  //this.state.personsHW2 is not getting updated
+  console.log('p', inputField);
   this.setState({p: inputField});
 
 }
@@ -205,7 +209,7 @@ toggleName = () => {
           <input onChange={this.lenOutput} style={inp}/>
           <p>{this.state.personsHW.map(obj => obj.filler)}</p>
           <input onChange={this.lenOutPut2}></input>
-          <p>{this.lenOutPut2}</p>
+          <p>{this.state.personsHW2}</p>
         {/* <button onClick={this.clickButtonConsoleLog}>alo</button> */}
         {persons}
       
