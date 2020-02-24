@@ -99,9 +99,26 @@ nameChangedHandler = (event, id) => {
   // })
 }
 lenOutput = (event) => {
+  // event.persist();
+  // const persons = [...this.state.persons];
+  // // const persons = this.state.persons;
+  // persons.splice(personIndex, 1); //removes 1 element from array
+  // this.setState({persons: persons});
+
+
   // console.log('things are happening in MY INPUT BABAY');
   const inputFieldText = event.target.value;
-  this.setState({persons: inputFieldText});
+  this.setState((prevState)=>{
+    const newPersonsHW = prevState.personsHW.map((obj)=>{
+      obj.filler = inputFieldText;
+      return obj;
+    });
+    return {personsHW:newPersonsHW}
+  })
+  // this.setState({personsHW.: inputFieldText})
+  // this.setState.personsHW.filler = inputFieldText;
+
+  console.log('this.state.personsHW', this.state.personsHW);
 
   
 }
@@ -153,6 +170,8 @@ toggleName = () => {
       style.backgroundColor = 'red';
     }
 
+    let personsHW
+
     let assignedClasses = [];
     if(this.state.persons.length <= 2){
       assignedClasses.push('red'); //classes = ['red]
@@ -179,10 +198,11 @@ toggleName = () => {
         <button 
           style={style}
           onClick={this.toggleName}> switch name</button><br></br>
-          <input onChange = {this.lenOutput} style={inp}/>
-          {/* <p>{this.state.personsHW}</p> */}
+          <input onChange={this.lenOutput} style={inp}/>
+          <p>{this.state.personsHW.map(obj => obj.filler)}</p>
         {/* <button onClick={this.clickButtonConsoleLog}>alo</button> */}
         {persons}
+      
         {/* { */}
           {/* //terneray operator not the greatest because it can be hard
           // to know what's responsible for what
