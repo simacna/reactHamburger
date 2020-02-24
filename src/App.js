@@ -18,6 +18,11 @@ class App extends React.Component {
         {id:'B2', name: 'person2', age: 2 }
         // {name: 'man', age:12}
       ],
+      personsHW: [
+        {
+          filler: ''
+        }
+      ],
       otherState: 'some other value',
       showPersons: false //if false, don't want to show person
     }
@@ -81,7 +86,7 @@ nameChangedHandler = (event, id) => {
   const persons = [...this.state.persons];
   persons[personIndex] = person;
 
-  this.setState({persons: persons})
+  this.setState({persons: persons});
   //below is commented out bc directly working on object
   // const person = this.state.persons[personIndex];
   // this.setState({
@@ -93,24 +98,19 @@ nameChangedHandler = (event, id) => {
   //   ]
   // })
 }
+lenOutput = (event) => {
+  // console.log('things are happening in MY INPUT BABAY');
+  const inputFieldText = event.target.value;
+  this.setState({persons: inputFieldText});
+
+  
+}
 
 toggleName = () => {
   const currentStatus = this.state.showPersons;
   this.setState({showPersons: !currentStatus});
 }
 
-clickButtonConsoleLog = () => {
-  console.log('button pressed');
-}
-
-
-lenOutput = (event) => {
-  // console.log('things are happening in MY INPUT BABAY');
-  const inputFieldText = event.target.value;
-  console.log(inputFieldText);
-  this.setState({persons: inputFieldText});
-
-}
 
 //everything inside render gets rendered when 
 // react thinks something needs to get updated
@@ -180,6 +180,7 @@ lenOutput = (event) => {
           style={style}
           onClick={this.toggleName}> switch name</button><br></br>
           <input onChange = {this.lenOutput} style={inp}/>
+          {/* <p>{this.state.personsHW}</p> */}
         {/* <button onClick={this.clickButtonConsoleLog}>alo</button> */}
         {persons}
         {/* { */}
