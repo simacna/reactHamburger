@@ -5,8 +5,7 @@ import { isTSAnyKeyword } from '@babel/types';
 
 //every component manages props and since react 16.8 every component also can manage state (prior to that you could only manage class base components)
 const person = (props) => {
-    //props is the attributes you pass to your
-    //components
+    //props is the attributes you pass to your components
     // stateless (also called dumb) since they only get input and output as possible 
     // console.log('props in Person.js', props);
 
