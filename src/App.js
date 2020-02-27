@@ -178,8 +178,6 @@ toggleName = () => {
       style.backgroundColor = 'red';
     }
 
-    let personsHW
-
     let assignedClasses = [];
     if(this.state.persons.length <= 2){
       assignedClasses.push('red'); //classes = ['red]
