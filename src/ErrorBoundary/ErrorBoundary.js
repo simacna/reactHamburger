@@ -5,8 +5,19 @@ class ErrorBoundary extends Component {
         hasError: false,
         errorMessage: ''
     }
+
+    componentDidCatch = (error, info) => {
+        this.ListeningStateChangedEvent({hasError: true, errorMessage: error});
+    }
+
+    render() {
+        if(this.state.hasError){
+        return <h1>{this.state.errorMessage}</h1>
+        } else {
+            return this.props.children;
+        }
+    }
+    
 }
 
-componentDidCatch = (error, info) => {
-    this.ListeningStateChangedEvent({hasError: true, errorMessage: error});
-}
+
