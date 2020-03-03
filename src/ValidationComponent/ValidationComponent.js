@@ -6,7 +6,7 @@ const valcomponent = (props) => {
 
     return (
         <div className="ValComponent">
-            
+            <p>i'm receiving {valcomponent.length}</p>
         </div>
     )
     
