@@ -4,6 +4,7 @@
 import React, {Component} from 'react'
 import './App.css';
 import Person from './Person/Person';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
 
 
 class App extends React.Component {
@@ -73,7 +74,7 @@ nameChangedHandler = (event, id) => {
 
   //how can there be a situation where the p.id != id?
   const personIndex = this.state.persons.findIndex(p => {
-    return p.id === id;
+    return p.userId === id;
   });
   //below was my attempt but apparently need to pass a callback to findindex find
   // const personIndex = this.state.persons.findIndex(id);
@@ -163,22 +164,26 @@ toggleName = () => {
         <div>
           {/* map() function takes two arguments, index of each item in array */}
           {this.state.persons.map((person, index) => {
-            return <Person 
+            // ErrorBoundary is a higher order comp, i.e. it wraps around another comp
+            // key always has to be on outer element in map method
+            //only use errorboundaries in cases it might fail and you can't control it, else figure it out and not a
+            return <Person
+            // <ErrorBoundary>
+              
             // other option below would be index.bind()
             click={() => this.deletePersonHandler(index)}
             name={person.name} 
             age={person.age}
-            //chances are keys come from db
             key={person.id}
+            //chances are keys come from db
             changed={(event) => this.nameChangedHandler(event, person.id)}
             />
+            
           })}
         </div>  
       )
       style.backgroundColor = 'red';
     }
-
-    let personsHW
 
     let assignedClasses = [];
     if(this.state.persons.length <= 2){

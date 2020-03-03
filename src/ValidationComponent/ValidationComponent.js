@@ -1,6 +1,6 @@
 import React from 'react';
 import './Person.css'
-import { isTSAnyKeyword } from '@babel/types';
+// import { isTSAnyKeyword } from '@babel/types';
 
 const valcomponent = (props) => {
 
