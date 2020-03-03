@@ -3,7 +3,7 @@
 
 import React, {Component} from 'react'
 import './App.css';
-import Person from './Person/Person';
+import Person from './Persons/Person/Person';
 import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
 
 
@@ -13,7 +13,8 @@ class App extends React.Component {
   //component called reactHooks
   // stateful components, you only wanna have a couple unless you have thousands of components
   // you have way more functional components and have a clear flow of data
-    state = {
+  //components that manage state shouldn't also manage UI usually  
+  state = {
       persons: [
         {id: 'A1', name: 'person1', age: 1},
         {id:'B2', name: 'person2', age: 2 }
