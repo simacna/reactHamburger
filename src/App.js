@@ -74,7 +74,7 @@ nameChangedHandler = (event, id) => {
 
   //how can there be a situation where the p.id != id?
   const personIndex = this.state.persons.findIndex(p => {
-    return p.id === id;
+    return p.userId === id;
   });
   //below was my attempt but apparently need to pass a callback to findindex find
   // const personIndex = this.state.persons.findIndex(id);
