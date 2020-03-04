@@ -3,7 +3,7 @@
 
 import React, {Component} from 'react'
 import './App.css';
-import Person from '../components/Persons/Person/Person';
+import Persons from '../components/Persons/Persons';
 // import ErrorBoundary from '../ErrorBoundary/ErrorBoundary'
 
 
@@ -162,6 +162,11 @@ toggleName = () => {
 
     if((this.state.showPersons)){
       persons = (
+        <Persons
+          persons={this.state.persons}
+          clicked={this.deletePersonHandler}
+          changed={this.nameChangedHandler}
+        />
         // <div>
         //   {/* map() function takes two arguments, index of each item in array */}
         //   {this.state.persons.map((person, index) => {
@@ -201,7 +206,7 @@ toggleName = () => {
 // css loader transforms css class name into a unique one 
 // where classname we tweaked in webpack
         <div className= "App" >
-          <h1>
+          {/* <h1>
             æ
           </h1>
           <p className={assignedClasses.join(' ')}>
@@ -209,13 +214,13 @@ toggleName = () => {
           </p>
         {/* below you see two ways of calling switchNameHandler
         using arrow function on onclick or bind(this, 'string') */}
-        <button 
+        {/* <button 
           style={style}
           onClick={this.toggleName}> switch name</button><br></br>
           <input onChange={this.lenOutput} style={inp}/>
           <p>{this.state.personsHW.map(obj => obj.filler)}</p>
           <input onChange={this.lenOutPut2}></input>
-          <p>{this.state.personsHW2}</p>
+          <p>{this.state.personsHW2}</p> */}
         {/* <button onClick={this.clickButtonConsoleLog}>alo</button> */}
         {persons}
       
