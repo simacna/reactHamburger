@@ -3,8 +3,8 @@
 
 import React, {Component} from 'react'
 import './App.css';
-import Person from './Persons/Person/Person';
-import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
+import Person from '../components/Persons/Person/Person';
+// import ErrorBoundary from '../ErrorBoundary/ErrorBoundary'
 
 
 class App extends React.Component {
@@ -162,26 +162,26 @@ toggleName = () => {
 
     if((this.state.showPersons)){
       persons = (
-        <div>
-          {/* map() function takes two arguments, index of each item in array */}
-          {this.state.persons.map((person, index) => {
-            // ErrorBoundary is a higher order comp, i.e. it wraps around another comp
-            // key always has to be on outer element in map method
-            //only use errorboundaries in cases it might fail and you can't control it, else figure it out and not a
-            return <Person
-            // <ErrorBoundary>
+        // <div>
+        //   {/* map() function takes two arguments, index of each item in array */}
+        //   {this.state.persons.map((person, index) => {
+        //     // ErrorBoundary is a higher order comp, i.e. it wraps around another comp
+        //     // key always has to be on outer element in map method
+        //     //only use errorboundaries in cases it might fail and you can't control it, else figure it out and not a
+        //     return <Person
+        //     // <ErrorBoundary>
               
-            // other option below would be index.bind()
-            click={() => this.deletePersonHandler(index)}
-            name={person.name} 
-            age={person.age}
-            key={person.id}
-            //chances are keys come from db
-            changed={(event) => this.nameChangedHandler(event, person.id)}
-            />
+        //     // other option below would be index.bind()
+        //     click={() => this.deletePersonHandler(index)}
+        //     name={person.name} 
+        //     age={person.age}
+        //     key={person.id}
+        //     //chances are keys come from db
+        //     changed={(event) => this.nameChangedHandler(event, person.id)}
+        //     />
             
-          })}
-        </div>  
+        //   })}
+        // </div>  
       )
       style.backgroundColor = 'red';
     }
