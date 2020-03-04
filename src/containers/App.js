@@ -3,6 +3,7 @@
 
 import React, {Component} from 'react'
 import './App.css';
+import Cockpit from '../components/Cockpit/Cockpit';
 import Persons from '../components/Persons/Persons';
 // import ErrorBoundary from '../ErrorBoundary/ErrorBoundary'
 
@@ -161,7 +162,7 @@ toggleName = () => {
     
 
     if((this.state.showPersons)){
-      persons = (
+      persons = 
         <Persons
           persons={this.state.persons}
           clicked={this.deletePersonHandler}
@@ -187,25 +188,30 @@ toggleName = () => {
             
         //   })}
         // </div>  
-      )
+      
       style.backgroundColor = 'red';
     }
 
-    let assignedClasses = [];
-    if(this.state.persons.length <= 2){
-      assignedClasses.push('red'); //classes = ['red]
-      // assignedClasses.push(classes.red);
-    }
-    if(this.state.persons <= 1){
-      assignedClasses.push('bold'); //classes = ['red', 'bold']
-      // assignedClasses.push(classes.bold);
-    }
+    // let assignedClasses = [];
+    // if(this.state.persons.length <= 2){
+    //   assignedClasses.push('red'); //classes = ['red]
+    //   // assignedClasses.push(classes.red);
+    // }
+    // if(this.state.persons <= 1){
+    //   assignedClasses.push('bold'); //classes = ['red', 'bold']
+    //   // assignedClasses.push(classes.bold);
+    // }
 
     //below this is jsx, above is normal js code
     return(
 // css loader transforms css class name into a unique one 
 // where classname we tweaked in webpack
         <div className= "App" >
+            <Cockpit 
+            showPersons={this.state.showPersons}
+            persons={this.state.persons}
+            clicked={this.toggleName}
+            />
           {/* <h1>
             æ
           </h1>

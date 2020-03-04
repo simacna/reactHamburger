@@ -14,3 +14,11 @@
   .bold{
     font-weight: bold;
   }
+
+  .Cockpit button {
+      border: 1px solid blue;
+      padding: 16px;
+      font: inherit;
+      color: white;
+      
+  }

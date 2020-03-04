@@ -1,8 +1,11 @@
 import React from 'react';
+import classes from './Cockpit.css';
 
-
-const cockpit = () => {
-
+const cockpit = (props) => {
+    let btnClass = '';
+    if(props.showPersons){
+        btnClass = classes.Red;
+    }
     let assignedClasses = [];
     if(props.persons.length <= 2){
       assignedClasses.push('red'); //classes = ['red]
@@ -12,8 +15,16 @@ const cockpit = () => {
       assignedClasses.push('bold'); //classes = ['red', 'bold']
       // assignedClasses.push(classes.bold);
     }
+
+    const style = {
+        backgroundColor: 'purple',
+        font: 'inherit',
+        border: '1px solid blue',
+        padding: '8px',
+        cursor: 'pointer'
+      };
     return(
-        <div>
+        <div className="Cockpit">
             <h1>
             æ
           </h1>
@@ -24,11 +35,11 @@ const cockpit = () => {
         using arrow function on onclick or bind(this, 'string') */}
         <button 
           style={style}
-          onClick={this.toggleName}> switch name</button><br></br>
-          <input onChange={this.lenOutput} style={inp}/>
-          <p>{this.state.personsHW.map(obj => obj.filler)}</p>
-          <input onChange={this.lenOutPut2}></input>
-          <p>{this.state.personsHW2}</p>
+          onClick={props.clicked}> switch name</button><br></br>
+          <input onChange={props.lenOutput} style={style}/>
+          {/* <p>{this.state.personsHW.map(obj => obj.filler)}</p> */}
+          <input onChange={props.lenOutPut2}></input>
+          {/* <p>{this.state.personsHW2}</p> */}
         </div>
         
     );
