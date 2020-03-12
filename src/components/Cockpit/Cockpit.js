@@ -1,6 +1,9 @@
 import React from 'react';
 import classes from './Cockpit.css';
 
+
+//stateless components have usually been functional components
+//even though you could with useState
 const cockpit = (props) => {
     let btnClass = '';
     if(props.showPersons){
