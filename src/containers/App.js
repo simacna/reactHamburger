@@ -9,6 +9,13 @@ import Persons from '../components/Persons/Persons';
 
 
 class App extends React.Component {
+  constructor(props){
+    super(props); //access constructor of Component extending and access this.setState()
+    console.log('[APP.js] constructor');
+    //you could also initialize state here instead of below, below is a more modern syntax which
+    //adds constructor for you, call super(props). if you don't want to use it, you can set state in constructor
+  }
+
   //state and setState is only class based component, this
   // was before react 16.8, but now there's also functional
   //component called reactHooks
@@ -30,6 +37,11 @@ class App extends React.Component {
       otherState: 'some other value',
       showPersons: false //if false, don't want to show person
     }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log('app.js - getDerivedStateFromProps', props);
+    return state;
+  }
 
 //[convention] function names ending in handler
 // are handling event methods
@@ -143,6 +155,7 @@ toggleName = () => {
 //everything inside render gets rendered when 
 // react thinks something needs to get updated
   render(){
+    console.log('app.js render');
     // console.log(typeof(this.state));
     const style = {
       backgroundColor: 'purple',
