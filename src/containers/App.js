@@ -208,6 +208,7 @@ toggleName = () => {
 // where classname we tweaked in webpack
         <div className= "App" >
             <Cockpit 
+            title={this.props.appTitle}
             showPersons={this.state.showPersons}
             persons={this.state.persons}
             clicked={this.toggleName}

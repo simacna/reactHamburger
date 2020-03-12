@@ -29,7 +29,7 @@ const cockpit = (props) => {
     return(
         <div className="Cockpit">
             <h1>
-            æ
+            æ - i'm a {props.title}
           </h1>
           <p className={assignedClasses.join(' ')}>
             this be a paragraph
