@@ -83,6 +83,11 @@ deletePersonHandler = (personIndex) => {
 //   this.setState({showPersons: !doesShow});
 // }
 
+componentDidMount (){
+  //can use for http requests
+  console.log('app.js - componentdidmount()')
+}
+
 //why doesn't putting parameter as (...args) work below?
 nameChangedHandler = (event, id) => {
 
