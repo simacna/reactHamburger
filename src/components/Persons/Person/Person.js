@@ -8,16 +8,22 @@ import { isTSAnyKeyword } from '@babel/types';
 
 class Person extends Component{
 
-    return (
-        <div className="Person">
+    render() {
+        console.log('Person.js - rendering...');
+        return(
+            <div className="Person">
             
-            <p onClick={this.props.click}> i'm {props.age} year and my 
-            name is {this.props.name}
-            </p>
-            <input type="text" onChange={this.props.changed} value={this.props.name}/>  
-        </div>
-
+        <p onClick={this.props.click}> i'm {this.props.age} year and my 
+        name is {this.props.name}
+        </p>
+        <input type="text" onChange={this.props.changed} value={this.props.name}/>  
+    </div>
+        )
+        
+    }
 }
+
+
 //every component manages props and since react 16.8 every component also can manage state (prior to that you could only manage class base components)
 // const person = (props) => {
     //props is the attributes you pass to your components
