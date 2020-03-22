@@ -7,7 +7,7 @@ import Person from './Person/Person';
 class Persons extends Component{
     static getDerivedStateFromProps(props, state){
         //should return a state
-        console.log('persons.js - getDerivedStateFromProps');
+        console.log('persons.js - getDerivedStateFromProps - num 1 in stack of methods');
         return state;
     }
 
@@ -16,16 +16,21 @@ class Persons extends Component{
         //and now you have to return true or false whether react should continue updating or not
         //you compare current props to your upcoming props
 
-        console.log('persons.js - shouldComponentUpdate');
+        console.log('persons.js - shouldComponentUpdate - num 2 in stack of methods');
         return true;
     }
 
     getSnapshotBeforeUpdate(prevProps, prevState){
         //after this method render() gets executed
-        console.log('persons.js - getSnapShotBeforeUpdate');
+        console.log('persons.js - getSnapShotBeforeUpdate - num 3 in stack of methods');
+    }
+
+    componentDidUpdate(){
+        //will run after done updating render() method
+        console.log(' app.js - componentDidUpdate - num 5');
     }
     render(){
-        console.log('Persons.js - rendering...');
+        console.log('Persons.js - rendering... - num 4 in stack of methods');
         return this.props.persons.map((person, index) => {
             //   below returning a list - q: how do you know <Person> is a list?
                 return (
