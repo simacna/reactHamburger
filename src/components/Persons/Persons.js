@@ -5,7 +5,25 @@ import Person from './Person/Person';
 
 
 class Persons extends Component{
-    
+    static getDerivedStateFromProps(props, state){
+        //should return a state
+        console.log('persons.js - getDerivedStateFromProps');
+        return state;
+    }
+
+    shouldComponentUpdate(next){
+        //gets upcoming props which happen right after getderivedstae and upcoming state 
+        //and now you have to return true or false whether react should continue updating or not
+        //you compare current props to your upcoming props
+
+        console.log('persons.js - shouldComponentUpdate');
+        return true;
+    }
+
+    getSnapshotBeforeUpdate(prevProps, prevState){
+        //after this method render() gets executed
+        console.log('persons.js - getSnapShotBeforeUpdate');
+    }
     render(){
         console.log('Persons.js - rendering...');
         return this.props.persons.map((person, index) => {
