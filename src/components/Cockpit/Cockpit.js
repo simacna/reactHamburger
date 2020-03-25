@@ -1,10 +1,24 @@
-import React from 'react';
+import React, {useEffect} from 'react'; //useEffect 2nd most imp react hook next to useState
+//combines functionality of all class based lifecycle hooks in one, it's a react hook and not lifecycle hook
 import classes from './Cockpit.css';
+
 
 
 //stateless components have usually been functional components
 //even though you could with useState
-const cockpit = (props) => {
+const Cockpit = (props) => {
+    //useEffect runs on every render
+    useEffect(() => {
+      console.log('cockpit.js - useEffect()');
+      // componentDidMount and componentDidUpdate in one
+      // example of wanting just one
+      setTimeout(()=>{
+        alert('alert');
+      }, 1000);
+
+    }, []); //2nd arg, }, [props.persons]); point at all variables that are actually used in your effect, 'only work when props.person changes'
+    // [] empty array means only fire first time and whenever dependencies change
+    
     let btnClass = '';
     if(props.showPersons){
         btnClass = classes.Red;
@@ -50,4 +64,4 @@ const cockpit = (props) => {
 
 }
 
-export default cockpit;
+export default Cockpit;
