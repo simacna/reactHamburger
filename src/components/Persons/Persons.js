@@ -27,6 +27,7 @@ class Persons extends Component{
 
     componentDidUpdate(){
         //will run after done updating render() method
+        // hook you'll use most often
         console.log(' app.js - componentDidUpdate - num 5');
     }
     render(){
