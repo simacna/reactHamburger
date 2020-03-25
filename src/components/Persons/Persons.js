@@ -30,6 +30,11 @@ class Persons extends Component{
         // hook you'll use most often
         console.log(' app.js - componentDidUpdate - num 5');
     }
+
+    componentWillUnmount(){
+        //code to be executed right before component is removed
+        console.log('persons.js - rendering...');
+    }
     render(){
         console.log('Persons.js - rendering... - num 4 in stack of methods');
         return this.props.persons.map((person, index) => {

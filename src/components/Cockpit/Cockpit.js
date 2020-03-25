@@ -13,12 +13,22 @@ const Cockpit = (props) => {
       // componentDidMount and componentDidUpdate in one
       // example of wanting just one
       setTimeout(()=>{
-        alert('alert');
+        console.log('alert');
       }, 1000);
-
+      return() => {
+        console.log('cockpit.js - cleanup work in useEffect');
+      }
     }, []); //2nd arg, }, [props.persons]); point at all variables that are actually used in your effect, 'only work when props.person changes'
-    // [] empty array means only fire first time and whenever dependencies change
+    // [] empty array means only fire first time and whenever dependencies change. so only render when component rendered and unmounted
     
+    useEffect(() => {
+      console.log('cockpit.js - 2nd useEffect()');
+
+      return () => {
+        //below runs before above console.log - useful for when some operation would should be cancelled when component re-renders
+        console.log('cockpit.js - return(cleanup 2nd useEffect)') 
+      }
+    })
     let btnClass = '';
     if(props.showPersons){
         btnClass = classes.Red;

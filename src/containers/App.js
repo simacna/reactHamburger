@@ -35,7 +35,8 @@ class App extends React.Component {
       ],
       personsHW2: 'alo',
       otherState: 'some other value',
-      showPersons: false //if false, don't want to show person
+      showPersons: false, //if false, don't want to show person
+      showCockpit: true
     }
 
   static getDerivedStateFromProps(props, state) {
@@ -85,7 +86,7 @@ deletePersonHandler = (personIndex) => {
 
 componentDidMount (){
   //can use for http requests 
-  // used frequently
+  // used frequently, like fetching data from server
   console.log('app.js - componentdidmount()')
 }
 
@@ -238,12 +239,16 @@ toggleName = () => {
 // css loader transforms css class name into a unique one 
 // where classname we tweaked in webpack
         <div className= "App" >
+            <button onClick={() => {this.setState({showCockpit: false})}}>remove cockpit</button>
+            {this.state.showCockpit ? 
             <Cockpit 
             title={this.props.appTitle}
             showPersons={this.state.showPersons}
             persons={this.state.persons}
             clicked={this.toggleName}
-            />
+            /> : null
+          }
+            
           {/* <h1>
             æ
           </h1>
