@@ -84,8 +84,21 @@ deletePersonHandler = (personIndex) => {
 // }
 
 componentDidMount (){
-  //can use for http requests
+  //can use for http requests 
+  // used frequently
   console.log('app.js - componentdidmount()')
+}
+
+componentDidUpdate(){
+  //will run when state changes
+  // used frequently
+  console.log('app.js - componeDidUpdate()')
+}
+
+shouldComponentUpdate(nextProps, nextState){
+  console.log('app.js - shouldComponentUpdate()');
+  // used for performance improvements
+  return true; //false will prevent persons to appear, default is true
 }
 
 //why doesn't putting parameter as (...args) work below?
