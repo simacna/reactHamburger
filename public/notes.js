@@ -23,3 +23,9 @@
 //3.21.20 - just as we a life cycle for component creation, we also have one for updating, so when props or state changed
 // before a component to be reevaluated, we staret from:
 
+//3.26.20 - is it a good idea to memoirze all functional component and shouldComponentUpdate? no because you'll have 
+//components who'll update when their parent updates, so if you implement optimization cases, they'll check and run, they're unncessary
+//how react updates the DOM - render() being called doesn't automatically call realDOM, render is a more of a check of what 
+//html should look like, that's why we check shouldComponentUpdate for unnecessary render() call. it first compares virtual doms,
+//react takes this approach since faster than readlDOM. react comparex old/new virtual dom, if finds differences, only changes differences
+//where change has occured. if no differences, doesn't touch real DOM.

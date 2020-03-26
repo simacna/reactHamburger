@@ -10,6 +10,8 @@ class Person extends Component{
 
     render() {
         console.log('Person.js - rendering...');
+        
+        //the return should only have one root jsx
         return(
             <div className="Person">
             
