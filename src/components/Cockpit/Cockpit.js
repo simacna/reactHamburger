@@ -75,4 +75,5 @@ const Cockpit = (props) => {
 
 }
 
-export default Cockpit;
+export default React.memo(Cockpit); //memoiziation is a snapshop of Cockpit, only when 
+//inputs changes -- memo is used for optimizing for functional components

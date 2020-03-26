@@ -1,10 +1,10 @@
 //we're using class based components for state management
 //and functional components for presentation
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import Person from './Person/Person';
 
 
-class Persons extends Component{
+class Persons extends PureComponent{
     static getDerivedStateFromProps(props, state){
         //should return a state
         console.log('persons.js - getDerivedStateFromProps - num 1 in stack of methods');
@@ -17,7 +17,15 @@ class Persons extends Component{
         //you compare current props to your upcoming props
 
         console.log('persons.js - shouldComponentUpdate - num 2 in stack of methods');
-        return true;
+        // below is a way of checking if any part of the props changes, you can not use shouldCompoentUpdate but
+        //extend a {PureComponent} instead of Component since it's a normal Component except it automatically
+        // runs a shouldComponentUpdate with a full props check
+        // if(nextProps.persons !== this.props.persons || nextProps.changed !== this.props.changed || nextProps.clicked !== this.props.clicked){
+        //     return true;
+        // } else {
+        //     return false;
+        // }
+        
     }
 
     getSnapshotBeforeUpdate(prevProps, prevState){
