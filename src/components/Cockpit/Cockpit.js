@@ -12,10 +12,11 @@ const Cockpit = (props) => {
       console.log('cockpit.js - useEffect()');
       // componentDidMount and componentDidUpdate in one
       // example of wanting just one
-      setTimeout(()=>{
+      const timer = setTimeout(()=>{
         console.log('alert');
       }, 1000);
       return() => {
+        clearTimeout(timer); //clears up timer when unmounted
         console.log('cockpit.js - cleanup work in useEffect');
       }
     }, []); //2nd arg, }, [props.persons]); point at all variables that are actually used in your effect, 'only work when props.person changes'
