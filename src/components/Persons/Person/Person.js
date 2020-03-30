@@ -14,12 +14,12 @@ class Person extends Component{
         //the return should only have one root jsx
         return(
             <div className="Person">
-            
-        <p onClick={this.props.click}> i'm {this.props.age} year and my 
-        name is {this.props.name}
-        </p>
-        <input type="text" onChange={this.props.changed} value={this.props.name}/>  
-    </div>
+            <p onClick={this.props.click}> i'm {this.props.age} year and my 
+            name is {this.props.name}
+            </p>
+            <input key="i2" type="text" onChange={this.props.changed} value={this.props.name}/>  
+        
+  </div>
         )
         
     }

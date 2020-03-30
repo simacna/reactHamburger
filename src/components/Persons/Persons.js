@@ -17,6 +17,7 @@ class Persons extends PureComponent{
         //you compare current props to your upcoming props
 
         console.log('persons.js - shouldComponentUpdate - num 2 in stack of methods');
+        return true;
         // below is a way of checking if any part of the props changes, you can not use shouldCompoentUpdate but
         //extend a {PureComponent} instead of Component since it's a normal Component except it automatically
         // runs a shouldComponentUpdate with a full props check
