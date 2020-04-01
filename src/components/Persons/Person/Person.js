@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Radium from 'radium';
 import './Person.css'
 import { isTSAnyKeyword } from '@babel/types';
-import Aux from '.../.../.../hoc/Aux'
+
 
 // Converting functional component to class based to use lifecycle hook methods
 
@@ -16,12 +16,15 @@ class Person extends Component{
 
         return(
             <div className="Person">
-            <p onClick={this.props.click}> i'm {this.props.age} year and my 
+          
+        <p onClick={this.props.click}> i'm {this.props.age} year and my 
             name is {this.props.name}
             </p>
             <input key="i2" type="text" onChange={this.props.changed} value={this.props.name}/>  
+           
+            
         
-  </div>
+ </div>
         )
         
     }
