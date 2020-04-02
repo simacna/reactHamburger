@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Radium from 'radium';
 import './Person.css'
 import { isTSAnyKeyword } from '@babel/types';
+import Aux from '../../../hoc/Aux';
 
 
 // Converting functional component to class based to use lifecycle hook methods
@@ -14,17 +15,22 @@ class Person extends Component{
         //the return should only have one root jsx
         //below we could also do <Aux> <p>... just to have wrapper
         //return(React.createElement())
+        //there's also a built in valid jsx component and you can use React.Fragment or just import {Component, Fragment} and use <Fragment>
+        //since Fragment does the same as Aux
         return(
-            <div className="Person">
-          
+            <Aux>
+
         <p onClick={this.props.click}> i'm {this.props.age} year and my 
-            name is {this.props.name}
-            </p>
-            <input key="i2" type="text" onChange={this.props.changed} value={this.props.name}/>  
+            name is {this.props.name}</p>
+        <input key="i2" type="text" onChange={this.props.changed} value={this.props.name}/>   
+            </Aux>
+            // <div className="Person">
+          
+        
            
             
         
- </div>
+//  </div>
         )
         
     }

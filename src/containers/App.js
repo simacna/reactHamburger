@@ -5,6 +5,7 @@ import React, {Component} from 'react'
 import './App.css';
 import Cockpit from '../components/Cockpit/Cockpit';
 import Persons from '../components/Persons/Persons';
+import WithClass from '../hoc/WithClass';
 // import ErrorBoundary from '../ErrorBoundary/ErrorBoundary'
 
 
@@ -239,7 +240,8 @@ toggleName = () => {
 // css loader transforms css class name into a unique one 
 // where classname we tweaked in webpack
         <div className= "App" >
-            <button onClick={() => {this.setState({showCockpit: false})}}>remove cockpit</button>
+        {/* // <WithClass className="App"> */}
+          <button onClick={() => {this.setState({showCockpit: false})}}>remove cockpit</button>
             {this.state.showCockpit ? 
             <Cockpit 
             title={this.props.appTitle}
@@ -248,33 +250,38 @@ toggleName = () => {
             clicked={this.toggleName}
             /> : null
           }
+          {persons}
+       
             
-          {/* <h1>
+            
+          <h1>
             æ
           </h1>
-          <p className={assignedClasses.join(' ')}>
+          <p >
             this be a paragraph
           </p>
-        {/* below you see two ways of calling switchNameHandler
-        using arrow function on onclick or bind(this, 'string') */}
-        {/* <button 
+</div>
+          /* </WithClass> */
+        /* below you see two ways of calling switchNameHandler
+        using arrow function on onclick or bind(this, 'string') */
+        /* <button 
           style={style}
           onClick={this.toggleName}> switch name</button><br></br>
           <input onChange={this.lenOutput} style={inp}/>
           <p>{this.state.personsHW.map(obj => obj.filler)}</p>
           <input onChange={this.lenOutPut2}></input>
-          <p>{this.state.personsHW2}</p> */}
-        {/* <button onClick={this.clickButtonConsoleLog}>alo</button> */}
-        {persons}
+          <p>{this.state.personsHW2}</p> */
+        /* <button onClick={this.clickButtonConsoleLog}>alo</button> */
+        
       
-        {/* { */}
-          {/* //terneray operator not the greatest because it can be hard
+        /* { */
+          /* //terneray operator not the greatest because it can be hard
           // to know what's responsible for what
-          // this.state.showPerson ? */}
+          // this.state.showPerson ? */
           
-          {/* : null } */}
-        {/* we're going to conditionally display <Person> below */}
-          {/* {
+          /* : null } */
+        /* we're going to conditionally display <Person> below */
+          /* {
           // can't do if statements only block in this dynamic syntax
           this.state.showPersons ?
           <div>
@@ -285,8 +292,8 @@ toggleName = () => {
             // click = {this.nameChangedHandler}
             changed = {this.nameChangedHandler}
             />
-          </div> : null} */}
-      </div>
+          </div> : null} */
+      // </div>
      
       
     )
