@@ -37,7 +37,8 @@ class App extends React.Component {
       personsHW2: 'alo',
       otherState: 'some other value',
       showPersons: false, //if false, don't want to show person
-      showCockpit: true
+      showCockpit: true,
+      changeCounter: 0
     }
 
   static getDerivedStateFromProps(props, state) {
@@ -122,7 +123,7 @@ nameChangedHandler = (event, id) => {
   const persons = [...this.state.persons];
   persons[personIndex] = person;
 
-  this.setState({persons: persons});
+  this.setState({persons: persons, changeCounter: this.state.changeCounter + 1});
   //below is commented out bc directly working on object
   // const person = this.state.persons[personIndex];
   // this.setState({
