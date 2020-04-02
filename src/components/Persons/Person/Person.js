@@ -13,7 +13,7 @@ class Person extends Component{
         
         //the return should only have one root jsx
         //below we could also do <Aux> <p>... just to have wrapper
-
+        //return(React.createElement())
         return(
             <div className="Person">
           
