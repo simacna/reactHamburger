@@ -29,3 +29,5 @@
 //html should look like, that's why we check shouldComponentUpdate for unnecessary render() call. it first compares virtual doms,
 //react takes this approach since faster than readlDOM. react comparex old/new virtual dom, if finds differences, only changes differences
 //where change has occured. if no differences, doesn't touch real DOM.
+
+//should you use propTyeps to all components? maybe? up to what's the scenarios like multipe pplz using your components

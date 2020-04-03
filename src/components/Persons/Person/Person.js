@@ -1,16 +1,22 @@
 import React, {Component} from 'react';
 import Radium from 'radium';
-import './Person.css'
+import './Person.css';
 import { isTSAnyKeyword } from '@babel/types';
 import Aux from '../../../hoc/Aux';
+import PropTypes from 'prop-types';
 
 
 // Converting functional component to class based to use lifecycle hook methods
 
 class Person extends Component{
-
+  componentWillUpdate(){
+    //or below commented out if you're using constructor method
+    
+    this.inputElement.focus();
+  }
     render() {
         console.log('Person.js - rendering...');
+
         
         //the return should only have one root jsx
         //below we could also do <Aux> <p>... just to have wrapper
@@ -22,7 +28,17 @@ class Person extends Component{
 
         <p onClick={this.props.click}> i'm {this.props.age} year and my 
             name is {this.props.name}</p>
-        <input key="i2" type="text" onChange={this.props.changed} value={this.props.name}/>   
+        <input 
+        key="i2" 
+        type="text" 
+        onChange={this.props.changed} 
+        value={this.props.name}
+        //below name of inputElement oculd be anything
+        //we gain access to the input element then storing it in global property
+        //so that we can use anywhere in our app, and since componentDidMount runs after render
+        //it'll update
+        ref={(inputEl)=> {this.inputElement = inputEl}}
+        />   
             </Aux>
             // <div className="Person">
           
@@ -31,6 +47,17 @@ class Person extends Component{
   }
 }
 
+//below is a js object, proptypes you can add to any js component
+//object and react will watch out for in dev mode and give a warning
+//if you pass incorrect props and which type of data each component should be
+
+Person.propTypes = {
+  click: PropTypes.func,
+  name: PropTypes.string,
+  age: PropTypes.number,
+  changed: PropTypes.func
+
+}
 
 //every component manages props and since react 16.8 every component also can manage state (prior to that you could only manage class base components)
 // const person = (props) => {
