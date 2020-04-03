@@ -1,7 +1,8 @@
 // import React from 'react';
 // import React, { useState } from 'react';
 
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+
 import './App.css';
 import Cockpit from '../components/Cockpit/Cockpit';
 import Persons from '../components/Persons/Persons';
@@ -123,7 +124,18 @@ nameChangedHandler = (event, id) => {
   const persons = [...this.state.persons];
   persons[personIndex] = person;
 
-  this.setState({persons: persons, changeCounter: this.state.changeCounter + 1});
+  //behind the scenes, setState doesn't automatically update, instead it's scheduled by React
+  //when it has avaialble resources to do that, so when having a counter, this.state.changeCounter + 2 isn't right
+  //there's a better way of updating state when you depend on old state, setStae takes both object and function
+  // nothing wrong with passing object, but with changeCounter, use optional syntax when you receive 2 argds
+
+  this.setState((prevState, props) => {
+    return {
+      persons: persons,
+      changeCounter: prevState.changeCounter + 1
+    }
+  })
+  // this.setState({persons: persons, changeCounter: this.state.changeCounter + 1});
   //below is commented out bc directly working on object
   // const person = this.state.persons[personIndex];
   // this.setState({

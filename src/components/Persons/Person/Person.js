@@ -26,14 +26,9 @@ class Person extends Component{
             </Aux>
             // <div className="Person">
           
-        
-           
-            
-        
 //  </div>
-        )
-        
-    }
+    ) 
+  }
 }
 
 
