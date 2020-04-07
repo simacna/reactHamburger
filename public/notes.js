@@ -31,3 +31,14 @@
 //where change has occured. if no differences, doesn't touch real DOM.
 
 //should you use propTyeps to all components? maybe? up to what's the scenarios like multipe pplz using your components
+
+//two ways of referencing: 1. with ref on an object
+//or React.createRef() then use it on object like: {ref={this.inputelementRef}}
+
+//4.7.20 - references in functional based components, using cockpit as example
+
+// const toggleBtnRef = React.createRef(); class based
+// const togglebtnRef = useRef(null); functional
+// toggleBtnRef.current.click(); <- this'll need to put it in useEffect() since it renders everytime
+
+//return ( <div> <button ref={toggleBtnRef})
