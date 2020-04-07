@@ -1,8 +1,6 @@
 // import React from 'react';
 // import React, { useState } from 'react';
-
 import React, {Component} from 'react';
-
 import './App.css';
 import Cockpit from '../components/Cockpit/Cockpit';
 import Persons from '../components/Persons/Persons';

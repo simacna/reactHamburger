@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'; //useEffect 2nd most imp react hook next to useState
+import React, {useEffect, useRef} from 'react'; //useEffect 2nd most imp react hook next to useState
 //combines functionality of all class based lifecycle hooks in one, it's a react hook and not lifecycle hook
 import classes from './Cockpit.css';
 
@@ -7,16 +7,20 @@ import classes from './Cockpit.css';
 //stateless components have usually been functional components
 //even though you could with useState
 const Cockpit = (props) => {
+    const toggleBtnRef = useRef(null); //you could pass initial value
+
     //useEffect runs on every render
     useEffect(() => {
+
       console.log('cockpit.js - useEffect()');
       // componentDidMount and componentDidUpdate in one
       // example of wanting just one
-      const timer = setTimeout(()=>{
-        console.log('alert');
-      }, 1000);
+      // const timer = setTimeout(()=>{
+      //   console.log('alert');
+      // }, 1000);
+      toggleBtnRef.current.click();
       return() => {
-        clearTimeout(timer); //clears up timer when unmounted
+        // clearTimeout(timer); //clears up timer when unmounted
         console.log('cockpit.js - cleanup work in useEffect');
       }
     }, []); //2nd arg, }, [props.persons]); point at all variables that are actually used in your effect, 'only work when props.person changes'
@@ -62,6 +66,7 @@ const Cockpit = (props) => {
         {/* below you see two ways of calling switchNameHandler
         using arrow function on onclick or bind(this, 'string') */}
         <button 
+          ref={toggleBtnRef}
           style={style}
           onClick={props.clicked}> switch name</button><br></br>
           <input onChange={props.lenOutput} style={style}/>
