@@ -5,6 +5,8 @@ import './App.css';
 import Cockpit from '../components/Cockpit/Cockpit';
 import Persons from '../components/Persons/Persons';
 import WithClass from '../hoc/WithClass';
+import AuthContext from '../context/auth-context'; //can be used as component and should wrap any part
+//of app that needs this context
 // import ErrorBoundary from '../ErrorBoundary/ErrorBoundary'
 
 
@@ -37,7 +39,8 @@ class App extends React.Component {
       otherState: 'some other value',
       showPersons: false, //if false, don't want to show person
       showCockpit: true,
-      changeCounter: 0
+      changeCounter: 0, 
+      authenticated: false
     }
 
   static getDerivedStateFromProps(props, state) {
@@ -182,6 +185,9 @@ toggleName = () => {
   this.setState({showPersons: !currentStatus});
 }
 
+loginHandler = () => {
+  this.setState({authenticated: true});
+}
 
 //everything inside render gets rendered when 
 // react thinks something needs to get updated
@@ -211,6 +217,7 @@ toggleName = () => {
           persons={this.state.persons}
           clicked={this.deletePersonHandler}
           changed={this.nameChangedHandler}
+          isAuthenticated={this.state.authenticated} //gets passed to Persons.js
         />
         // <div>
         //   {/* map() function takes two arguments, index of each item in array */}
@@ -252,14 +259,26 @@ toggleName = () => {
 // where classname we tweaked in webpack
         <div className= "App" >
         {/* // <WithClass className="App"> */}
-          <button onClick={() => {this.setState({showCockpit: false})}}>remove cockpit</button>
+          <button onClick={() => 
+            {this.setState({showCockpit: false})}}>remove cockpit
+          </button>
+          {/* will update whenever this.state updates */}
+          <AuthContext.Provider 
+          value={{
+            authenticated: this.state.authenticated, 
+            login: this.loginHandler
+            }}> 
             {this.state.showCockpit ? 
-            <Cockpit 
-            title={this.props.appTitle}
-            showPersons={this.state.showPersons}
-            persons={this.state.persons}
-            clicked={this.toggleName}
-            /> : null
+              <Cockpit 
+              title={this.props.appTitle}
+              showPersons={this.state.showPersons}
+              persons={this.state.persons}
+              clicked={this.toggleName}
+              login = {this.loginHandler}
+              /> : null
+          </AuthContext.Provider>
+            
+           
           }
           {persons}
        

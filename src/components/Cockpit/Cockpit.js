@@ -72,6 +72,7 @@ const Cockpit = (props) => {
           <input onChange={props.lenOutput} style={style}/>
           {/* <p>{this.state.personsHW.map(obj => obj.filler)}</p> */}
           <input onChange={props.lenOutPut2}></input>
+          <button onClick={props.login}>log in </button>
           {/* <p>{this.state.personsHW2}</p> */}
         </div>
         

@@ -45,22 +45,22 @@ class Persons extends PureComponent{
         console.log('persons.js - rendering...');
     }
     render(){
-        console.log('Persons.js - rendering... - num 4 in stack of methods');
-        return this.props.persons.map((person, index) => {
-            //   below returning a list - q: how do you know <Person> is a list?
-                return (
-                    <Person  
-                        click={() => this.props.clicked(index)}
-                        name={person.name}
-                        age={person.age}
-                        key={person.id}
-                        changed={(event) => this.props.changed(event, person.id)}
-            
-                />
-                    );
-                });
+      console.log('Persons.js - rendering... - num 4 in stack of methods');
+      return this.props.persons.map((person, index) => {
+          //   below returning a list - q: how do you know <Person> is a list?
+              return (
+                  <Person  
+                      click={() => this.props.clicked(index)}
+                      name={person.name}
+                      age={person.age}
+                      key={person.id}
+                      changed={(event) => this.props.changed(event, person.id)}
+          
+              />
+                  );
+              });
 
-    }
+  }
 }
 
 // }

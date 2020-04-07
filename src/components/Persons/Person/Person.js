@@ -4,7 +4,7 @@ import './Person.css';
 import { isTSAnyKeyword } from '@babel/types';
 import Aux from '../../../hoc/Aux';
 import PropTypes from 'prop-types';
-
+import AuthContext from '../../../context/auth-context';
 
 // Converting functional component to class based to use lifecycle hook methods
 
@@ -25,6 +25,12 @@ class Person extends Component{
         //since Fragment does the same as Aux
         return(
             <Aux>
+                <AuthContext.Consumer>
+                  {(context) => 
+                    context.authenticated ? <p> Authenticated</p> : <p> please login</p>
+                  }
+                </AuthContext.Consumer>
+              {/* {this.props.isAuth ? <p>Authenticated!</p> : <p>please login</p>}  */}
 
         <p onClick={this.props.click}> i'm {this.props.age} year and my 
             name is {this.props.name}</p>
