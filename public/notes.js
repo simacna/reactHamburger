@@ -42,3 +42,8 @@
 // toggleBtnRef.current.click(); <- this'll need to put it in useEffect() since it renders everytime
 
 //return ( <div> <button ref={toggleBtnRef})
+
+//useContext is to functional componente as statis context is to class based components
+// gives you access to context and context api is all about managing data across components
+//without need of passing data around with props. knowoing contextapi is important 
+//since it'll make redux easier to understand

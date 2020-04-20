@@ -1,6 +1,7 @@
-import React, {useEffect, useRef} from 'react'; //useEffect 2nd most imp react hook next to useState
+import React, {useEffect, useRef, useContext} from 'react'; //useEffect 2nd most imp react hook next to useState
 //combines functionality of all class based lifecycle hooks in one, it's a react hook and not lifecycle hook
 import classes from './Cockpit.css';
+import AuthContext from '../../context/auth-context';
 
 
 
@@ -8,7 +9,7 @@ import classes from './Cockpit.css';
 //even though you could with useState
 const Cockpit = (props) => {
     const toggleBtnRef = useRef(null); //you could pass initial value
-
+    const authContext = useContext(AuthContext);
     //useEffect runs on every render
     useEffect(() => {
 
@@ -72,7 +73,11 @@ const Cockpit = (props) => {
           <input onChange={props.lenOutput} style={style}/>
           {/* <p>{this.state.personsHW.map(obj => obj.filler)}</p> */}
           <input onChange={props.lenOutPut2}></input>
-          <button onClick={props.login}>log in </button>
+          <AuthContext.Consumer>
+            {/* login property references login function in app.js login:this.loginHandler */}
+              {(context) => <button onClick={context.login}>log in </button> }
+          </AuthContext.Consumer>
+        
           {/* <p>{this.state.personsHW2}</p> */}
         </div>
         

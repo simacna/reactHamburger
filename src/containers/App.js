@@ -263,23 +263,24 @@ loginHandler = () => {
             {this.setState({showCockpit: false})}}>remove cockpit
           </button>
           {/* will update whenever this.state updates */}
-          <AuthContext.Provider 
+          <AuthContext.Provider
           value={{
             authenticated: this.state.authenticated, 
             login: this.loginHandler
-            }}> 
+            }}
+            >
             {this.state.showCockpit ? 
               <Cockpit 
               title={this.props.appTitle}
               showPersons={this.state.showPersons}
               persons={this.state.persons}
               clicked={this.toggleName}
-              login = {this.loginHandler}
-              /> : null
+              // login = {this.loginHandler} commented since using context
+              /> : null}
           </AuthContext.Provider>
             
            
-          }
+          
           {persons}
        
             

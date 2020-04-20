@@ -9,6 +9,9 @@ import AuthContext from '../../../context/auth-context';
 // Converting functional component to class based to use lifecycle hook methods
 
 class Person extends Component{
+
+  static contextType = AuthContext; // allows react to access context and access to new prop
+  //and gives access to this.context refering to context property react gives you
   componentWillUpdate(){
     //or below commented out if you're using constructor method
     
